@@ -35,19 +35,17 @@ public class ChessBoard extends View {
 
         int screenLength = getWidth();
         int squareSide = screenLength / gridLength;
-//        for (int i = 0; i < gridLength; i++) {
-//
-//        }
-        // left, top, right, bottom
-        canvas.drawRect(0f + 0 * squareSide, 0f, 1 * squareSide, squareSide, grayPaint);
-        canvas.drawRect(0f + 1 * squareSide, 0f, 2 * squareSide, squareSide, blackPaint);
-//        canvas.drawRect(0f, 0f, squareSide, squareSide, grayPaint);
-//        canvas.drawRect(0f + 2 * squareSide, 0f, squareSide, squareSide, blackPaint);
-        canvas.drawRect(0f + 2 * squareSide, 0f, 3 * squareSide, squareSide, grayPaint);
-        canvas.drawRect(0f + 3 * squareSide, 0f, 4 * squareSide, squareSide, blackPaint);
-        canvas.drawRect(0f + 4 * squareSide, 0f, 5 * squareSide, squareSide, grayPaint);
-        canvas.drawRect(0f + 5 * squareSide, 0f, 6 * squareSide, squareSide, blackPaint);
-        canvas.drawRect(0f + 6 * squareSide, 0f, 7 * squareSide, squareSide, grayPaint);
-        canvas.drawRect(0f + 7 * squareSide, 0f, 8 * squareSide, squareSide, blackPaint);
+        for (int i = 0; i < gridLength; i++) {
+            if (isEven(i)) {
+                canvas.drawRect(0f + i * squareSide, 0f, (i + 1) * squareSide, squareSide, grayPaint);
+            } else {
+                canvas.drawRect(0f + i * squareSide, 0f, (i + 1) * squareSide, squareSide, blackPaint);
+            }
+        }
+
+    }
+
+    private boolean isEven(int number) {
+        return ((number % 2) == 0);
     }
 }
