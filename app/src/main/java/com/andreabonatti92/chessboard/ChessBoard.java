@@ -51,4 +51,6 @@ public class ChessBoard extends View {
     private boolean isEven(int number) {
         return ((number % 2) == 0);
     }
+
+    // The canvas is not a view so we cannot use simply the click listener to obtain the desired behavior
 }
