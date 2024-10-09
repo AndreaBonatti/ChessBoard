@@ -22,7 +22,7 @@ public class ChessBoard extends View {
 
     public ChessBoard(Context context) {
         super(context);
-        this.gridLength = 8; // TODO this will be a parameter of the class
+        this.gridLength = 5; // TODO this will be a parameter of the class
         grayPaint = new Paint();
         grayPaint.setColor(Color.GRAY);
         blackPaint = new Paint();
@@ -35,11 +35,14 @@ public class ChessBoard extends View {
 
         int screenLength = getWidth();
         int squareSide = screenLength / gridLength;
+
         for (int i = 0; i < gridLength; i++) {
-            if (isEven(i)) {
-                canvas.drawRect(0f + i * squareSide, 0f, (i + 1) * squareSide, squareSide, grayPaint);
-            } else {
-                canvas.drawRect(0f + i * squareSide, 0f, (i + 1) * squareSide, squareSide, blackPaint);
+            for (int j = 0; j < gridLength; j++) {
+                if (isEven(i + j)) {
+                    canvas.drawRect(j * squareSide, i * squareSide, (j + 1) * squareSide, (i + 1) * squareSide, grayPaint);
+                } else {
+                    canvas.drawRect(j * squareSide, i * squareSide, (j + 1) * squareSide, (i + 1) * squareSide, blackPaint);
+                }
             }
         }
 
