@@ -2,6 +2,8 @@ package com.andreabonatti92.chessboard;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -15,12 +17,37 @@ import androidx.annotation.NonNull;
  * I will change the color of the square properly
  */
 public class ChessBoard extends View {
+    private int gridLength;
+    private Paint grayPaint, blackPaint;
+
     public ChessBoard(Context context) {
         super(context);
+        this.gridLength = 8; // TODO this will be a parameter of the class
+        grayPaint = new Paint();
+        grayPaint.setColor(Color.GRAY);
+        blackPaint = new Paint();
+        blackPaint.setColor(Color.BLACK);
     }
 
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
+
+        int screenLength = getWidth();
+        int squareSide = screenLength / gridLength;
+//        for (int i = 0; i < gridLength; i++) {
+//
+//        }
+        // left, top, right, bottom
+        canvas.drawRect(0f + 0 * squareSide, 0f, 1 * squareSide, squareSide, grayPaint);
+        canvas.drawRect(0f + 1 * squareSide, 0f, 2 * squareSide, squareSide, blackPaint);
+//        canvas.drawRect(0f, 0f, squareSide, squareSide, grayPaint);
+//        canvas.drawRect(0f + 2 * squareSide, 0f, squareSide, squareSide, blackPaint);
+        canvas.drawRect(0f + 2 * squareSide, 0f, 3 * squareSide, squareSide, grayPaint);
+        canvas.drawRect(0f + 3 * squareSide, 0f, 4 * squareSide, squareSide, blackPaint);
+        canvas.drawRect(0f + 4 * squareSide, 0f, 5 * squareSide, squareSide, grayPaint);
+        canvas.drawRect(0f + 5 * squareSide, 0f, 6 * squareSide, squareSide, blackPaint);
+        canvas.drawRect(0f + 6 * squareSide, 0f, 7 * squareSide, squareSide, grayPaint);
+        canvas.drawRect(0f + 7 * squareSide, 0f, 8 * squareSide, squareSide, blackPaint);
     }
 }
