@@ -20,9 +20,9 @@ public class ChessBoard extends View {
     private int gridLength;
     private Paint grayPaint, blackPaint;
 
-    public ChessBoard(Context context) {
+    public ChessBoard(Context context, int gridLength) {
         super(context);
-        this.gridLength = 5; // TODO this will be a parameter of the class
+        this.gridLength = gridLength; // TODO this will be a parameter of the class
         grayPaint = new Paint();
         grayPaint.setColor(Color.GRAY);
         blackPaint = new Paint();

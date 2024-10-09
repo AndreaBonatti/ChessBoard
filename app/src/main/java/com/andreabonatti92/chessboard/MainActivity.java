@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ChessBoard chessBoard = new ChessBoard(MainActivity.this);
+        int gridLength = 8;
+        ChessBoard chessBoard = new ChessBoard(MainActivity.this, gridLength);
         setContentView(chessBoard);
     }
 }
